@@ -14,6 +14,7 @@ const jwtMiddleware = (req, res, next) => {
 
         req.payload = decoded.id
         req.role = decoded.role
+        req.orgId = decoded.organizationId
 
         next()
     }

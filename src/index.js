@@ -5,18 +5,22 @@ const cors = require("cors");
 const createUsersTable = require("./models/Users");
 const createProjectsTable = require("./models/Projects");
 const createBugsTable = require("./models/Bugs");
-const ProjectMembers=require('./models/ProjectMembers')
-const ActivityLog=require('./models/ActivityLogs')
+const ProjectMembers=require('./models/ProjectMembers');
+const ActivityLog=require('./models/ActivityLogs');
 // const createProjectMembersTable =require('./models/ProjectMembers')
-
+const createOrganizationsTable = require("./models/Organization");
 const router = require("./routes/route");
-
+const createSuperAdminTable = require("./models/SuperAdmins");
+const createOrganizationsMembersTable = require("./models/OrganizationMembers");
 async function createTables() {
     await createUsersTable();
     await createProjectsTable();
     await createBugsTable();
     await ProjectMembers();
     await ActivityLog();
+    await createOrganizationsTable();
+    await createSuperAdminTable();
+    await createOrganizationsMembersTable();
     // await createProjectMembersTable();
 }
 
